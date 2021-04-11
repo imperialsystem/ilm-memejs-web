@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const router = express.Router();
+const PORT = process.env.PORT || 8080;
 
 //middleware
 app.use("/static", express.static("public"));
@@ -37,4 +38,7 @@ router.get("/sadcats", function (req, res) {
 
 //add the router
 app.use("/", router);
-app.listen(process.env.port || 3000);
+// listen
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+});
